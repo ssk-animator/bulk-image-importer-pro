@@ -11,12 +11,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Bulk Image Importer Pro"/>
   <Description DefaultValue="Import hundreds of images into Excel with advanced layout controls. Supports row, column, grid, masonry, and contact sheet layouts."/>
-  <IconUrl DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-  <SupportUrl DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/support"/>
+  <IconUrl DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://bulk-image-importer-pro.pages.dev/support"/>
 
   <AppDomains>
-    <AppDomain>https://bulk-image-importer-ssk.sahilk-hmx.workers.dev</AppDomain>
+    <AppDomain>https://bulk-image-importer-pro.pages.dev</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -30,7 +30,7 @@
   </Requirements>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/taskpane.html"/>
+    <SourceLocation DefaultValue="https://bulk-image-importer-pro.pages.dev/taskpane.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -369,43 +369,43 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="ImportGroup.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportGroup.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportGroup.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportImages.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportImages.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportImages.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportFolder.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportFolder.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportFolder.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="LayoutGroup.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="LayoutGroup.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="LayoutGroup.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportRow.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportRow.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportRow.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportColumn.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportColumn.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportColumn.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportGrid.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportGrid.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportGrid.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ImportContactSheet.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ImportContactSheet.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ImportContactSheet.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ToolsGroup.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ToolsGroup.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ToolsGroup.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="ClearImages.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="ClearImages.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="ClearImages.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
-        <bt:Image id="Settings.Icon16" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-16.png"/>
-        <bt:Image id="Settings.Icon32" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-32.png"/>
-        <bt:Image id="Settings.Icon80" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportImages.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportImages.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportImages.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportFolder.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportFolder.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportFolder.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="LayoutGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="LayoutGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="LayoutGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportRow.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportRow.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportRow.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportColumn.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportColumn.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportColumn.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportGrid.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportGrid.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportGrid.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ImportContactSheet.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ImportContactSheet.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ImportContactSheet.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ToolsGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ToolsGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ToolsGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="ClearImages.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="ClearImages.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="ClearImages.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
+        <bt:Image id="Settings.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-16.png"/>
+        <bt:Image id="Settings.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-32.png"/>
+        <bt:Image id="Settings.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/taskpane.html"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://bulk-image-importer-ssk.sahilk-hmx.workers.dev/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://bulk-image-importer-pro.pages.dev/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://bulk-image-importer-pro.pages.dev/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Tab.Label" DefaultValue="Image Tools"/>
