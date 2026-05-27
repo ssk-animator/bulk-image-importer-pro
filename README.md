@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./bulk-image-importer-pro_Banner.png" alt="Bulk Image Importer Pro Banner" width="100%">
+  <img src="./bulk-image-importer-pro_Banner_V2.png" alt="Bulk Image Importer Pro Banner" width="100%">
 </p>
 
 # Bulk Image Importer Pro
