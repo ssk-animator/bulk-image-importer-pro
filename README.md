@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./bulk-image-importer-pro_Banner.png" alt="Bulk Image Importer Pro Banner" width="100%">
+</p>
+
 # Bulk Image Importer Pro
 
 Bulk Image Importer Pro is an Excel add-in that allows users to quickly import large numbers of images directly into Excel worksheets using multiple layout modes.
