@@ -60,6 +60,10 @@ export default defineConfig({
       input: {
         taskpane: path.resolve(__dirname, "src/taskpane.html"),
         commands: path.resolve(__dirname, "src/commands.html"),
+        index: path.resolve(__dirname, "src/index.html"),
+        support: path.resolve(__dirname, "src/support.html"),
+        privacy: path.resolve(__dirname, "src/privacy.html"),
+        terms: path.resolve(__dirname, "src/terms.html"),
       },
       output: {
         entryFileNames: "assets/[name].js",

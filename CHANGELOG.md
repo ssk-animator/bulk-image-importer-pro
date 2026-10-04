@@ -29,6 +29,11 @@
   the network check.
 - `tools/deploy-pages.ps1`: one-command Pages deploy reading the token from
   memory/env only (never committed).
+- Production web content: `src/support.html`, `src/privacy.html`,
+  `src/terms.html` (+ `src/index.html` now built) added to vite inputs and
+  deployed 2026-10-04 to the existing `bulk-image-importer-pro` Pages
+  project — 39/39 live URLs verified HTTP 200 (taskpane, commands, index,
+  support, privacy, terms, all 33 icons).
 - `docs/INSTALLATION.md`, `docs/MARKETPLACE-CHECKLIST.md`, `docs/ARCHITECTURE.md`;
   README rewritten around Development / End-user / Organization scenarios.
 
