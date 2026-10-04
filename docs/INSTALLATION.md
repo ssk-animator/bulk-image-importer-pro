@@ -19,16 +19,21 @@
 
 ## Web testing launcher (development only)
 
-`tools/Launch-WebExcel-Importer.ps1` (or `npm run sideload:web`) automates
-the documented Microsoft web-sideload flow:
+`tools/Launch-WebExcel-Importer.ps1` (or `npm run sideload:web`) is a genuine
+one-click QA launcher (verified 2026-10-04):
 
-```powershell
-powershell -ExecutionPolicy RemoteSigned -File tools\Launch-WebExcel-Importer.ps1 -DocumentUrl "https://<your-workbook-url>"
-```
-
-- Uses `office-addin-debugging start release/manifest.xml web --document <url> --prod`.
-- Refuses localhost/dev manifests by default; `-DryRun` validates without launching.
-- Sideload state lives in browser local storage — testing only, not production.
+- First run: auto-creates an Excel Web workbook via Microsoft's own
+  `excel.new` shortcut (URL observed through the browser debugging protocol
+  only — no DOM, cookie, or localStorage access), saves its URL to
+  `%LOCALAPPDATA%\BulkImageImporterPro\web-qa-url.txt`, and opens it in your
+  default browser. You do the Upload My Add-in step **once ever** with
+  `release\manifest.xml` (path is printed).
+- Later runs: reopens the saved QA workbook with the add-in still sideloaded.
+- `tools/Get-WebExcel-DocUrl.py` is the URL-acquisition helper.
+- Dead ends documented so nobody retries them: `office-addin-debugging start
+  ... web` rejects non-localhost manifest SourceLocations, and the legacy
+  `wdaddindevserverport/wdaddinmanifestfile` document-URL params are ignored
+  by current Excel Web (verified: zero manifest fetches).
 - **Excel for the web** is account/service based: a Windows installer CANNOT
   modify the user's cloud account. Claiming otherwise would be an unsupported
   hack (DOM injection / cache manipulation are explicitly out of scope).

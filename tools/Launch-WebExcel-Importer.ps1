@@ -1,79 +1,64 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-  Developer/testing launcher: auto-sideload Bulk Image Importer Pro into Excel on the web.
+  One-click Excel Web QA launcher for Bulk Image Importer Pro (testing only).
 
 .DESCRIPTION
-  Uses ONLY Microsoft's documented Office Add-ins web sideload mechanism
-  (office-addin-debugging start <manifest> web --document <url>).
-  Eliminates the repeated manual Home > Add-ins > Advanced > Upload My Add-in
-  flow during development/testing.
+  First run: automatically creates an Excel Web QA workbook (Microsoft's own
+  excel.new shortcut, observed via the browser debugging protocol only: URL
+  observation, no DOM, cookie, or localStorage access), saves its URL locally
+  (outside the repo), and opens it in your default browser. You perform the
+  one-time Home - Add-ins - Upload My Add-in step in that workbook; the
+  manifest path is printed for you (release\manifest.xml).
 
-  This is explicitly a DEVELOPMENT/TESTING launcher. A sideloaded add-in is
-  stored in browser local storage and is NOT a permanent consumer deployment.
-  Production = Marketplace installation link or Microsoft 365 centralized
-  deployment. See docs/INSTALLATION.md.
+  Later runs: just opens the saved QA workbook - the sideloaded add-in is
+  still there (sideload state persists per browser profile until cache clear).
 
-  Uses the production manifest (hosted Cloudflare URLs) by default; refuses
-  to sideload a localhost/dev manifest unless -AllowDevManifest is given.
+  This is explicitly DEVELOPMENT/TESTING tooling. Production = Marketplace
+  installation link or Microsoft 365 centralized deployment.
 
-.PARAMETER DocumentUrl
-  Excel/OneDrive workbook URL, e.g.
-  https://contoso-my.sharepoint.com/.../Test.xlsx
-  If omitted, you will be prompted.
-
-.PARAMETER Manifest
-  Defaults to release/manifest.xml (production).
-
-.PARAMETER DryRun
-  Validate everything and print the exact sideload command without launching.
-
-.EXAMPLE
-  powershell -ExecutionPolicy RemoteSigned -File tools\Launch-WebExcel-Importer.ps1 -DryRun
-  powershell -ExecutionPolicy RemoteSigned -File tools\Launch-WebExcel-Importer.ps1 -DocumentUrl "https://..."
+.PARAMETER Reset
+  Forget the saved QA workbook and create a fresh one.
 #>
 [CmdletBinding()]
-param(
-  [string]$DocumentUrl = "",
-  [string]$Manifest = "",
-  [switch]$DryRun,
-  [switch]$AllowDevManifest
-)
+param([switch]$Reset)
 
 $ErrorActionPreference = "Stop"
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
 $REPO_ROOT = Split-Path -Parent $SCRIPT_DIR
-if ([string]::IsNullOrWhiteSpace($Manifest)) {
-  $Manifest = Join-Path $REPO_ROOT "release\manifest.xml"
+$QA_URL_FILE = Join-Path ([Environment]::GetFolderPath("LocalApplicationData")) "BulkImageImporterPro\web-qa-url.txt"
+$MANIFEST = Join-Path $REPO_ROOT "release\manifest.xml"
+
+if ($Reset -and (Test-Path $QA_URL_FILE)) { Remove-Item $QA_URL_FILE -Force }
+
+if ((Test-Path $QA_URL_FILE) -and -not $Reset) {
+  $url = (Get-Content $QA_URL_FILE -Raw).Trim()
+  Write-Output "Opening saved QA workbook..."
+  Write-Output "URL: $url"
+  Start-Process $url
+  Write-Output "If Image Tools is missing, re-do the one-time Upload My Add-in with:"
+  Write-Output "  $MANIFEST"
+  exit 0
 }
 
-function Fail([string]$msg) { Write-Output "SIDELOAD-FAILED: $msg"; exit 1 }
-
-# 1. Manifest must exist and (by default) be the production one
-if (-not (Test-Path $Manifest)) { Fail "Manifest not found: $Manifest" }
-$xml = Get-Content $Manifest -Raw
-if ($xml -notmatch "VersionOverrides") { Fail "Manifest missing VersionOverrides." }
-if (($xml -match "localhost" -or $xml -match "127\.0\.0\.1") -and -not $AllowDevManifest) {
-  Fail "Refusing to web-sideload a development (localhost) manifest. Use release/manifest.xml or pass -AllowDevManifest."
+Write-Output "Creating Excel Web QA workbook (excel.new)..."
+$docUrl = & python3 (Join-Path $SCRIPT_DIR "Get-WebExcel-DocUrl.py") 2>&1
+if ($LASTEXITCODE -ne 0) {
+  Write-Output "WEB-QA-FAILED: could not obtain a workbook URL."
+  Write-Output $docUrl
+  Write-Output "Likely cause: Microsoft sign-in required - complete sign-in in the opened Edge window and re-run."
+  exit 1
 }
-
-# 2. Node + debugging tooling must be available
-try { $node = (Get-Command node -ErrorAction Stop).Source } catch { Fail "node not found on PATH." }
-Write-Output "Node: $node"
-
-# 3. Document URL (prompt if not supplied)
-if ([string]::IsNullOrWhiteSpace($DocumentUrl)) {
-  if ($DryRun) { $DocumentUrl = "<document-url-not-supplied-dry-run>" }
-  else { $DocumentUrl = Read-Host "Excel/OneDrive workbook URL" }
-}
-if (-not $DryRun -and $DocumentUrl -notmatch "^https://") { Fail "DocumentUrl must be an https:// URL." }
-
-$cmd = "npx --yes office-addin-debugging start `"$Manifest`" web --document `"$DocumentUrl`" --prod"
-Write-Output "Manifest: $Manifest"
-Write-Output "Command: $cmd"
-if ($DryRun) { Write-Output "DRY-RUN-OK: launcher validation passed."; exit 0 }
-
-Write-Output "Starting documented web sideload (first run may ask for Developer Mode)..."
-Set-Location $REPO_ROOT
-Invoke-Expression "& $cmd"
-exit $LASTEXITCODE
+$docUrl = ($docUrl | Where-Object { $_ -match "^https://" } | Select-Object -Last 1).Trim()
+New-Item -ItemType Directory -Path (Split-Path -Parent $QA_URL_FILE) -Force | Out-Null
+Set-Content -LiteralPath $QA_URL_FILE -Value $docUrl -NoNewline
+Write-Output "Saved QA workbook URL."
+Write-Output "URL: $docUrl"
+Write-Output "Opening workbook in your default browser..."
+Start-Process $docUrl
+Write-Output ""
+Write-Output "ONE-TIME STEP (only needed once ever in this browser):"
+Write-Output "  Home, Add-ins, More Settings, Upload My Add-in, Browse:"
+Write-Output "  $MANIFEST"
+Write-Output "After that, just re-run this launcher - the add-in will be there."
+exit 0
