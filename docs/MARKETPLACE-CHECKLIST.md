@@ -2,6 +2,8 @@
 
 Reference: https://learn.microsoft.com/en-us/office/dev/add-ins/publish/publish-office-add-ins-to-appsource
 
+Submission walkthrough: `docs/SUBMISSION.md` (exact listing values, test notes, post-approval Asset ID plan).
+
 - [x] Production manifest validates (`npm run validate`): IDs, Version,
       ProviderName, DisplayName, Description, IconUrl/HighResolutionIconUrl
       (HTTPS), SupportUrl (HTTPS), AppDomains, Hosts=Workbook,
@@ -19,9 +21,12 @@ Reference: https://learn.microsoft.com/en-us/office/dev/add-ins/publish/publish-
       product-appropriate pages; no unverified compliance claims).
       Support page live at `/support` (matches manifest SupportUrl).
 - [ ] Publisher profile + support contact in Partner Center.
-- [ ] Screenshots (1280x720, incl. ribbon with DISTINCT icons + taskpane).
+- [ ] Screenshots (1280x720: ribbon with DISTINCT icons, taskpane, grid result)
+      → must be captured from a real Excel run; save under `docs/store-assets/`.
 - [ ] Test notes: fresh M365 account, Excel Desktop + Excel Online.
-- [ ] Submit via Partner Center (NOT automated here).
+- [ ] Submit via Partner Center (NOT automated here) — see `docs/SUBMISSION.md`.
+- [ ] Post-approval: integrate the issued `WA` asset ID into the installer
+      (`AutoInstallAddins` step — spec in `docs/SUBMISSION.md`; do NOT invent the ID).
 
 Known platform limitation (documented, not worked around): consumer
 one-click silent install into arbitrary M365 accounts is not a supported

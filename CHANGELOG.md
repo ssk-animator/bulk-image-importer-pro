@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased (AppSource submission preparation)
+
+- `docs/SUBMISSION.md`: exact store-listing values, certification test notes,
+  screenshot requirements, and the post-approval `WA` asset-ID installer
+  integration plan (not implemented — ID must come from Microsoft).
+- Manifest policy pre-checks all pass (string lengths, no placeholders,
+  permissions justification, live HTTPS URLs, trademark-clean display name).
+- Store screenshots deferred: must come from a real Excel run after the
+  one-time add (automated capture yields a black/unhosted frame — not shipped).
+
 ## v1.0.0 (finalization + deployment hardening)
 
 ### Fixed
