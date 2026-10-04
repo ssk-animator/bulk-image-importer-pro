@@ -2,24 +2,31 @@ import { defineConfig } from "vite";
 import path from "path";
 import fs from "fs";
 
+function copyDirRecursive(srcDir: string, destDir: string) {
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
+  for (const entry of fs.readdirSync(srcDir)) {
+    const src = path.join(srcDir, entry);
+    const dest = path.join(destDir, entry);
+    const stat = fs.statSync(src);
+    if (stat.isDirectory()) {
+      copyDirRecursive(src, dest);
+    } else if (stat.isFile()) {
+      fs.copyFileSync(src, dest);
+      console.log(`  Copied ${path.relative(path.resolve(__dirname, "src/assets"), src)} → dist/assets/`);
+    }
+  }
+}
+
 function copyAssetsPlugin() {
   return {
     name: "copy-assets",
     closeBundle() {
       const srcDir = path.resolve(__dirname, "src/assets");
       const destDir = path.resolve(__dirname, "dist/assets");
-      if (!fs.existsSync(destDir)) {
-        fs.mkdirSync(destDir, { recursive: true });
-      }
       if (fs.existsSync(srcDir)) {
-        for (const file of fs.readdirSync(srcDir)) {
-          const src = path.join(srcDir, file);
-          const dest = path.join(destDir, file);
-          if (fs.statSync(src).isFile()) {
-            fs.copyFileSync(src, dest);
-            console.log(`  Copied ${file} → dist/assets/`);
-          }
-        }
+        copyDirRecursive(srcDir, destDir);
       }
     },
   };

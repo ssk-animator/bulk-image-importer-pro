@@ -23,30 +23,46 @@ Bulk Image Importer Pro is an Excel add-in that allows users to quickly import l
 - Dark UI
 - Excel Online support
 
-## Installation
+## Installation — pick ONE scenario
 
-### Download
+> Sideloading (manual `manifest.xml` upload) is the **development/testing**
+> path only. Production uses the installer (Excel Desktop), a Marketplace
+> installation link once published, or Microsoft 365 centralized deployment
+> for organizations. See `docs/INSTALLATION.md` for the full matrix.
 
-Visit the [Releases page](https://github.com/ssk-animator/bulk-image-importer-pro/releases) and download the latest `bulk-image-importer-pro-v1.0.0.zip`.
+### Scenario 1 — Development (sideload)
 
-### Install in Excel Online
+1. `npm install && npm run dev`
+2. In Excel Desktop or Excel Online: **Insert → Get Add-ins → Manage My
+   Add-ins → Upload My Add-in** → select `manifest.xml` (localhost).
+3. The **Image Tools** tab appears. Re-upload only when testing manifest changes.
 
-1. Extract the ZIP file to a folder.
-2. Open [Excel Online](https://excel.cloud.microsoft.com).
-3. Click **Insert** → **Add-ins** → **Manage My Add-ins** → **Upload My Add-in**.
-4. Select the extracted `manifest.xml` file.
-5. The **Image Tools** tab will appear in the ribbon.
-6. Click **Image Tools** → **Import Images** to open the taskpane.
+### Scenario 2 — Normal end user (Excel Desktop, one-time install)
 
-### Install in Excel Desktop
+1. Download `Bulk-Image-Importer-Pro-Setup-v1.0.0.exe` from the
+   [Releases page](https://github.com/ssk-animator/bulk-image-importer-pro/releases).
+2. Run it once. It verifies Excel, network access, and the production manifest,
+   then registers a per-user trusted catalog — no repeated manifest uploads.
+3. Open Excel Desktop → **Insert → Get Add-ins → Shared Folder** →
+   **Bulk Image Importer Pro**. The **Image Tools** tab persists across
+   Excel/Windows restarts.
+4. Repair: re-run the installer or
+   `powershell -ExecutionPolicy RemoteSigned -File Install-BulkImageImporter.ps1 -Repair`.
+   Uninstall: same script with `-Uninstall`, or Windows Add/Remove Programs.
 
-1. Extract the ZIP file to a folder.
-2. Open Excel Desktop.
-3. Click **Insert** → **Get Add-ins** → **Manage My Add-ins** → **Upload My Add-in**.
-4. Select the extracted `manifest.xml` file.
-5. The **Image Tools** tab will appear in the ribbon.
+### Scenario 3 — Organization / Excel Online (production)
 
-> **Note:** The add-in is hosted on Cloudflare Pages — no local server required.
+A Windows installer **cannot** inject an add-in into Excel Online accounts —
+Excel for the web is account/service based. Use a supported path:
+
+- **Microsoft 365 centralized deployment** (admin uploads
+  `release/manifest.xml`; commands auto-appear in the ribbon), or
+- **Marketplace installation link** after AppSource publication (see
+  `docs/MARKETPLACE-CHECKLIST.md`).
+
+Reference: https://learn.microsoft.com/en-us/office/dev/add-ins/publish/publish
+
+> **Note:** The add-in is hosted on Cloudflare Pages (`https://bulk-image-importer-pro.pages.dev`) — no local server required in production.
 
 ## Supported Formats
 

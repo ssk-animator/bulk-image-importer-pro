@@ -9,6 +9,11 @@
     "preview": "vite preview --config vite.config.ts",
     "start": "vite --config vite.config.ts",
     "lint": "tsc --noEmit",
+    "validate": "node tools/validate-manifest.js manifest.production.xml && node tools/validate-manifest.js manifest.xml --assets src/assets",
+    "validate:release": "node tools/validate-manifest.js release/manifest.xml",
+    "sync-manifest": "node tools/sync-manifest.js",
+    "sync-manifest:check": "node tools/sync-manifest.js --check",
+    "release": "npm run lint && npm run build && npm run sync-manifest && npm run validate && npm run validate:release",
     "certs:install": "npx office-addin-dev-certs install",
     "certs:verify": "npx office-addin-dev-certs verify"
   },
