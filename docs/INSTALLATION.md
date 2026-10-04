@@ -10,8 +10,25 @@
 ## Excel Desktop vs Excel Online (mandatory distinction)
 
 - **Excel Desktop** is device-based: the installer CAN register a trusted
-  catalog on the machine (HKCU, no admin needed). Excel reads it at startup
-  and surfaces the ribbon tab.
+  catalog on the machine (HKCU, no admin needed). The catalog makes the add-in
+  listed under Insert → Get Add-ins → Shared Folder; the user adds it once,
+  after which it persists across restarts. The installer cannot make the
+  ribbon tab appear with zero clicks — no supported local mechanism exists
+  for that (verified: no pre-insertion registry/file API; UI automation of
+  the dialog is unreliable).
+
+## Web testing launcher (development only)
+
+`tools/Launch-WebExcel-Importer.ps1` (or `npm run sideload:web`) automates
+the documented Microsoft web-sideload flow:
+
+```powershell
+powershell -ExecutionPolicy RemoteSigned -File tools\Launch-WebExcel-Importer.ps1 -DocumentUrl "https://<your-workbook-url>"
+```
+
+- Uses `office-addin-debugging start release/manifest.xml web --document <url> --prod`.
+- Refuses localhost/dev manifests by default; `-DryRun` validates without launching.
+- Sideload state lives in browser local storage — testing only, not production.
 - **Excel for the web** is account/service based: a Windows installer CANNOT
   modify the user's cloud account. Claiming otherwise would be an unsupported
   hack (DOM injection / cache manipulation are explicitly out of scope).
