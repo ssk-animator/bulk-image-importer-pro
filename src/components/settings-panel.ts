@@ -134,6 +134,17 @@ export class SettingsPanel {
           <button class="btn btn-primary" id="btn-save-settings" aria-label="Save settings">Save Settings</button>
         </div>
 
+        <div class="settings-group">
+          <label class="option-label">Add-in</label>
+          <p class="text-muted" style="font-size: var(--font-size-xs); margin: 0 0 8px 0;">
+            Bulk Image Importer Pro v1.0.0 — Excel Web Add-in
+          </p>
+          <button class="btn btn-sm btn-danger" id="btn-remove-addin" aria-label="Remove add-in">
+            Remove Add-in
+          </button>
+          <div id="remove-addin-confirm" hidden></div>
+        </div>
+
         <div class="settings-group about-creator">
           <label class="option-label">About the Creator</label>
           <div style="padding: 8px 0;">
@@ -230,6 +241,54 @@ export class SettingsPanel {
       });
     });
 
+    this.container.querySelector("#btn-remove-addin")?.addEventListener("click", () => {
+      this.showRemoveConfirmation();
+    });
+
+  }
+
+  private isExcelOnline(): boolean {
+    try {
+      const platform = (Office.context as any)?.platform;
+      return platform === "OfficeOnline";
+    } catch {
+      return false;
+    }
+  }
+
+  private showRemoveConfirmation(): void {
+    const box = this.container.querySelector("#remove-addin-confirm") as HTMLElement;
+    if (!box) return;
+    const online = this.isExcelOnline();
+    const steps = online
+      ? `<li>Open <strong>Home &gt; Add-ins &gt; More Settings</strong>.</li>
+         <li>Select the sideloaded <strong>Bulk Image Importer Pro</strong> entry and remove it.</li>`
+      : `<li>Close Excel completely.</li>
+         <li>Remove the sideloaded add-in through Excel (<strong>Insert &gt; Get Add-ins &gt; Manage My Add-ins</strong>) or clear the Office add-in cache per Microsoft's <q>clear the Office cache</q> guidance.</li>
+         <li>If installed via the Bulk Image Importer Pro setup, run the installer uninstaller to remove the local catalog registration.</li>`;
+    box.hidden = false;
+    box.innerHTML = `
+      <div class="remove-confirm" role="alertdialog" aria-label="Confirm add-in removal">
+        <p><strong>Remove Bulk Image Importer Pro?</strong></p>
+        <p>Removal requires an Office-side action — this task pane cannot uninstall
+        itself. Your workbook data and imported images will not be deleted.</p>
+        <ol>${steps}</ol>
+        <p><a href="https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing" target="_blank" rel="noopener noreferrer">Open Microsoft's sideload/removal guide</a></p>
+        <div class="remove-actions">
+          <button class="btn btn-sm btn-outline" id="btn-remove-cancel">Cancel</button>
+          <button class="btn btn-sm btn-danger" id="btn-remove-ack">I Understand</button>
+        </div>
+      </div>
+    `;
+    box.querySelector("#btn-remove-cancel")?.addEventListener("click", () => {
+      box.hidden = true;
+      box.innerHTML = "";
+    });
+    box.querySelector("#btn-remove-ack")?.addEventListener("click", () => {
+      box.hidden = true;
+      box.innerHTML = "";
+      this.showToast("Follow the steps above to complete removal in Office", "info");
+    });
   }
 
   private saveCurrentSettings(): void {

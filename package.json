@@ -15,6 +15,7 @@
     "sync-manifest:check": "node tools/sync-manifest.js --check",
     "release": "npm run lint && npm run build && npm run sync-manifest && npm run validate && npm run validate:release",
     "sideload:web": "powershell -NoProfile -ExecutionPolicy RemoteSigned -File tools/Launch-WebExcel-Importer.ps1",
+    "benchmark": "node tools/benchmark-batching.js",
     "certs:install": "npx office-addin-dev-certs install",
     "certs:verify": "npx office-addin-dev-certs verify"
   },

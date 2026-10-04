@@ -79,8 +79,7 @@ const imageUrlById = {};
 for (const m of xml.matchAll(/<bt:Image id="([^"]+)" DefaultValue="([^"]+)"/g)) {
   imageUrlById[m[1]] = m[2];
 }
-const commandPrefixes = ["ImportImages", "ImportFolder", "ImportRow", "ImportColumn",
-  "ImportGrid", "ImportContactSheet", "ClearImages", "Settings"];
+const commandPrefixes = ["OpenImporter", "ClearImages"];
 for (const prefix of commandPrefixes) {
   for (const size of ["16", "32", "80"]) {
     const id = `${prefix}.Icon${size}`;
@@ -89,7 +88,7 @@ for (const prefix of commandPrefixes) {
 }
 // Distinctness: no two commands may share the same asset (unless explicitly intended)
 const urlToPrefixes = {};
-for (const prefix of [...commandPrefixes, "ImportGroup", "LayoutGroup", "ToolsGroup"]) {
+for (const prefix of [...commandPrefixes, "MainGroup"]) {
   const u16 = imageUrlById[`${prefix}.Icon16`];
   if (u16) {
     urlToPrefixes[u16] = urlToPrefixes[u16] || [];
@@ -103,10 +102,8 @@ for (const [url, prefixes] of Object.entries(urlToPrefixes)) {
 }
 // Each icon URL must end with the expected per-command filename
 const expectedFile = {
-  ImportImages: "import-images", ImportFolder: "import-folder", ImportRow: "import-row",
-  ImportColumn: "import-column", ImportGrid: "import-grid",
-  ImportContactSheet: "contact-sheet", ClearImages: "clear-images", Settings: "settings",
-  ImportGroup: "group-import", LayoutGroup: "group-layout", ToolsGroup: "group-tools",
+  OpenImporter: "import-images", ClearImages: "clear-images",
+  MainGroup: "group-import",
 };
 for (const [prefix, slug] of Object.entries(expectedFile)) {
   for (const size of ["16", "32", "80"]) {

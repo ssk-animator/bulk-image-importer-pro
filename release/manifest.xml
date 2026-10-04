@@ -48,125 +48,29 @@
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <CustomTab id="BulkImageImporter.Tab">
               <Label resid="Tab.Label"/>
-              <Group id="BulkImageImporter.Group.Import">
-                <Label resid="ImportGroup.Label"/>
+              <Group id="BulkImageImporter.Group.Main">
+                <Label resid="MainGroup.Label"/>
                 <Icon>
-                  <bt:Image size="16" resid="ImportGroup.Icon16"/>
-                  <bt:Image size="32" resid="ImportGroup.Icon32"/>
-                  <bt:Image size="80" resid="ImportGroup.Icon80"/>
+                  <bt:Image size="16" resid="MainGroup.Icon16"/>
+                  <bt:Image size="32" resid="MainGroup.Icon32"/>
+                  <bt:Image size="80" resid="MainGroup.Icon80"/>
                 </Icon>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ImportImages">
-                  <Label resid="ImportImages.Label"/>
+                <Control xsi:type="Button" id="BulkImageImporter.Button.Open">
+                  <Label resid="OpenImporter.Label"/>
                   <Supertip>
-                    <Title resid="ImportImages.Label"/>
-                    <Description resid="ImportImages.Description"/>
+                    <Title resid="OpenImporter.Label"/>
+                    <Description resid="OpenImporter.Description"/>
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="ImportImages.Icon16"/>
-                    <bt:Image size="32" resid="ImportImages.Icon32"/>
-                    <bt:Image size="80" resid="ImportImages.Icon80"/>
+                    <bt:Image size="16" resid="OpenImporter.Icon16"/>
+                    <bt:Image size="32" resid="OpenImporter.Icon32"/>
+                    <bt:Image size="80" resid="OpenImporter.Icon80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ImportFolder">
-                  <Label resid="ImportFolder.Label"/>
-                  <Supertip>
-                    <Title resid="ImportFolder.Label"/>
-                    <Description resid="ImportFolder.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportFolder.Icon16"/>
-                    <bt:Image size="32" resid="ImportFolder.Icon32"/>
-                    <bt:Image size="80" resid="ImportFolder.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-              <Group id="BulkImageImporter.Group.Layout">
-                <Label resid="LayoutGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="LayoutGroup.Icon16"/>
-                  <bt:Image size="32" resid="LayoutGroup.Icon32"/>
-                  <bt:Image size="80" resid="LayoutGroup.Icon80"/>
-                </Icon>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Row">
-                  <Label resid="ImportRow.Label"/>
-                  <Supertip>
-                    <Title resid="ImportRow.Label"/>
-                    <Description resid="ImportRow.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportRow.Icon16"/>
-                    <bt:Image size="32" resid="ImportRow.Icon32"/>
-                    <bt:Image size="80" resid="ImportRow.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Column">
-                  <Label resid="ImportColumn.Label"/>
-                  <Supertip>
-                    <Title resid="ImportColumn.Label"/>
-                    <Description resid="ImportColumn.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportColumn.Icon16"/>
-                    <bt:Image size="32" resid="ImportColumn.Icon32"/>
-                    <bt:Image size="80" resid="ImportColumn.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Grid">
-                  <Label resid="ImportGrid.Label"/>
-                  <Supertip>
-                    <Title resid="ImportGrid.Label"/>
-                    <Description resid="ImportGrid.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportGrid.Icon16"/>
-                    <bt:Image size="32" resid="ImportGrid.Icon32"/>
-                    <bt:Image size="80" resid="ImportGrid.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ContactSheet">
-                  <Label resid="ImportContactSheet.Label"/>
-                  <Supertip>
-                    <Title resid="ImportContactSheet.Label"/>
-                    <Description resid="ImportContactSheet.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportContactSheet.Icon16"/>
-                    <bt:Image size="32" resid="ImportContactSheet.Icon32"/>
-                    <bt:Image size="80" resid="ImportContactSheet.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-              <Group id="BulkImageImporter.Group.Tools">
-                <Label resid="ToolsGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="ToolsGroup.Icon16"/>
-                  <bt:Image size="32" resid="ToolsGroup.Icon32"/>
-                  <bt:Image size="80" resid="ToolsGroup.Icon80"/>
-                </Icon>
                 <Control xsi:type="Button" id="BulkImageImporter.Button.Clear">
                   <Label resid="ClearImages.Label"/>
                   <Supertip>
@@ -182,152 +86,40 @@
                     <FunctionName>clearImages</FunctionName>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Settings">
-                  <Label resid="Settings.Label"/>
-                  <Supertip>
-                    <Title resid="Settings.Label"/>
-                    <Description resid="Settings.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Settings.Icon16"/>
-                    <bt:Image size="32" resid="Settings.Icon32"/>
-                    <bt:Image size="80" resid="Settings.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
               </Group>
             </CustomTab>
           </ExtensionPoint>
         </DesktopFormFactor>
 
-        <!-- Web: Full tab + FunctionFile for ExecuteFunction -->
+        <!-- Web: same minimal commands -->
         <WebFormFactor>
           <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <CustomTab id="BulkImageImporter.Tab.Web">
               <Label resid="Tab.Label"/>
-              <Group id="BulkImageImporter.Group.Import.Web">
-                <Label resid="ImportGroup.Label"/>
+              <Group id="BulkImageImporter.Group.Main.Web">
+                <Label resid="MainGroup.Label"/>
                 <Icon>
-                  <bt:Image size="16" resid="ImportGroup.Icon16"/>
-                  <bt:Image size="32" resid="ImportGroup.Icon32"/>
-                  <bt:Image size="80" resid="ImportGroup.Icon80"/>
+                  <bt:Image size="16" resid="MainGroup.Icon16"/>
+                  <bt:Image size="32" resid="MainGroup.Icon32"/>
+                  <bt:Image size="80" resid="MainGroup.Icon80"/>
                 </Icon>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ImportImages.Web">
-                  <Label resid="ImportImages.Label"/>
+                <Control xsi:type="Button" id="BulkImageImporter.Button.Open.Web">
+                  <Label resid="OpenImporter.Label"/>
                   <Supertip>
-                    <Title resid="ImportImages.Label"/>
-                    <Description resid="ImportImages.Description"/>
+                    <Title resid="OpenImporter.Label"/>
+                    <Description resid="OpenImporter.Description"/>
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="ImportImages.Icon16"/>
-                    <bt:Image size="32" resid="ImportImages.Icon32"/>
-                    <bt:Image size="80" resid="ImportImages.Icon80"/>
+                    <bt:Image size="16" resid="OpenImporter.Icon16"/>
+                    <bt:Image size="32" resid="OpenImporter.Icon32"/>
+                    <bt:Image size="80" resid="OpenImporter.Icon80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ImportFolder.Web">
-                  <Label resid="ImportFolder.Label"/>
-                  <Supertip>
-                    <Title resid="ImportFolder.Label"/>
-                    <Description resid="ImportFolder.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportFolder.Icon16"/>
-                    <bt:Image size="32" resid="ImportFolder.Icon32"/>
-                    <bt:Image size="80" resid="ImportFolder.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-              <Group id="BulkImageImporter.Group.Layout.Web">
-                <Label resid="LayoutGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="LayoutGroup.Icon16"/>
-                  <bt:Image size="32" resid="LayoutGroup.Icon32"/>
-                  <bt:Image size="80" resid="LayoutGroup.Icon80"/>
-                </Icon>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Row.Web">
-                  <Label resid="ImportRow.Label"/>
-                  <Supertip>
-                    <Title resid="ImportRow.Label"/>
-                    <Description resid="ImportRow.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportRow.Icon16"/>
-                    <bt:Image size="32" resid="ImportRow.Icon32"/>
-                    <bt:Image size="80" resid="ImportRow.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Column.Web">
-                  <Label resid="ImportColumn.Label"/>
-                  <Supertip>
-                    <Title resid="ImportColumn.Label"/>
-                    <Description resid="ImportColumn.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportColumn.Icon16"/>
-                    <bt:Image size="32" resid="ImportColumn.Icon32"/>
-                    <bt:Image size="80" resid="ImportColumn.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Grid.Web">
-                  <Label resid="ImportGrid.Label"/>
-                  <Supertip>
-                    <Title resid="ImportGrid.Label"/>
-                    <Description resid="ImportGrid.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportGrid.Icon16"/>
-                    <bt:Image size="32" resid="ImportGrid.Icon32"/>
-                    <bt:Image size="80" resid="ImportGrid.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.ContactSheet.Web">
-                  <Label resid="ImportContactSheet.Label"/>
-                  <Supertip>
-                    <Title resid="ImportContactSheet.Label"/>
-                    <Description resid="ImportContactSheet.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="ImportContactSheet.Icon16"/>
-                    <bt:Image size="32" resid="ImportContactSheet.Icon32"/>
-                    <bt:Image size="80" resid="ImportContactSheet.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-              <Group id="BulkImageImporter.Group.Tools.Web">
-                <Label resid="ToolsGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="ToolsGroup.Icon16"/>
-                  <bt:Image size="32" resid="ToolsGroup.Icon32"/>
-                  <bt:Image size="80" resid="ToolsGroup.Icon80"/>
-                </Icon>
                 <Control xsi:type="Button" id="BulkImageImporter.Button.Clear.Web">
                   <Label resid="ClearImages.Label"/>
                   <Supertip>
@@ -343,22 +135,6 @@
                     <FunctionName>clearImages</FunctionName>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="BulkImageImporter.Button.Settings.Web">
-                  <Label resid="Settings.Label"/>
-                  <Supertip>
-                    <Title resid="Settings.Label"/>
-                    <Description resid="Settings.Description"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Settings.Icon16"/>
-                    <bt:Image size="32" resid="Settings.Icon32"/>
-                    <bt:Image size="80" resid="Settings.Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>BulkImageImporter.Taskpane</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
               </Group>
             </CustomTab>
           </ExtensionPoint>
@@ -369,39 +145,15 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="ImportGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-16.png"/>
-        <bt:Image id="ImportGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-32.png"/>
-        <bt:Image id="ImportGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-80.png"/>
-        <bt:Image id="ImportImages.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-16.png"/>
-        <bt:Image id="ImportImages.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-32.png"/>
-        <bt:Image id="ImportImages.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-80.png"/>
-        <bt:Image id="ImportFolder.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-folder-16.png"/>
-        <bt:Image id="ImportFolder.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-folder-32.png"/>
-        <bt:Image id="ImportFolder.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-folder-80.png"/>
-        <bt:Image id="LayoutGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-layout-16.png"/>
-        <bt:Image id="LayoutGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-layout-32.png"/>
-        <bt:Image id="LayoutGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-layout-80.png"/>
-        <bt:Image id="ImportRow.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-row-16.png"/>
-        <bt:Image id="ImportRow.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-row-32.png"/>
-        <bt:Image id="ImportRow.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-row-80.png"/>
-        <bt:Image id="ImportColumn.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-column-16.png"/>
-        <bt:Image id="ImportColumn.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-column-32.png"/>
-        <bt:Image id="ImportColumn.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-column-80.png"/>
-        <bt:Image id="ImportGrid.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-grid-16.png"/>
-        <bt:Image id="ImportGrid.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-grid-32.png"/>
-        <bt:Image id="ImportGrid.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-grid-80.png"/>
-        <bt:Image id="ImportContactSheet.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/contact-sheet-16.png"/>
-        <bt:Image id="ImportContactSheet.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/contact-sheet-32.png"/>
-        <bt:Image id="ImportContactSheet.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/contact-sheet-80.png"/>
-        <bt:Image id="ToolsGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-tools-16.png"/>
-        <bt:Image id="ToolsGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-tools-32.png"/>
-        <bt:Image id="ToolsGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-tools-80.png"/>
+        <bt:Image id="MainGroup.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-16.png"/>
+        <bt:Image id="MainGroup.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-32.png"/>
+        <bt:Image id="MainGroup.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/group-import-80.png"/>
+        <bt:Image id="OpenImporter.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-16.png"/>
+        <bt:Image id="OpenImporter.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-32.png"/>
+        <bt:Image id="OpenImporter.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/import-images-80.png"/>
         <bt:Image id="ClearImages.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/clear-images-16.png"/>
         <bt:Image id="ClearImages.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/clear-images-32.png"/>
         <bt:Image id="ClearImages.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/clear-images-80.png"/>
-        <bt:Image id="Settings.Icon16" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/settings-16.png"/>
-        <bt:Image id="Settings.Icon32" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/settings-32.png"/>
-        <bt:Image id="Settings.Icon80" DefaultValue="https://bulk-image-importer-pro.pages.dev/assets/icons/settings-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Taskpane.Url" DefaultValue="https://bulk-image-importer-pro.pages.dev/taskpane.html"/>
@@ -409,27 +161,13 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Tab.Label" DefaultValue="Image Tools"/>
-        <bt:String id="ImportGroup.Label" DefaultValue="Import"/>
-        <bt:String id="LayoutGroup.Label" DefaultValue="Layout"/>
-        <bt:String id="ToolsGroup.Label" DefaultValue="Tools"/>
-        <bt:String id="ImportImages.Label" DefaultValue="Import Images"/>
-        <bt:String id="ImportFolder.Label" DefaultValue="Import Folder"/>
-        <bt:String id="ImportRow.Label" DefaultValue="Import Row"/>
-        <bt:String id="ImportColumn.Label" DefaultValue="Import Column"/>
-        <bt:String id="ImportGrid.Label" DefaultValue="Import Grid"/>
-        <bt:String id="ImportContactSheet.Label" DefaultValue="Contact Sheet"/>
+        <bt:String id="MainGroup.Label" DefaultValue="Importer"/>
+        <bt:String id="OpenImporter.Label" DefaultValue="Open Importer"/>
         <bt:String id="ClearImages.Label" DefaultValue="Clear Images"/>
-        <bt:String id="Settings.Label" DefaultValue="Settings"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="ImportImages.Description" DefaultValue="Select multiple image files to import into the current worksheet"/>
-        <bt:String id="ImportFolder.Description" DefaultValue="Import all images from a selected folder"/>
-        <bt:String id="ImportRow.Description" DefaultValue="Import images arranged horizontally in a single row"/>
-        <bt:String id="ImportColumn.Description" DefaultValue="Import images arranged vertically in a single column"/>
-        <bt:String id="ImportGrid.Description" DefaultValue="Import images in a grid layout with configurable columns"/>
-        <bt:String id="ImportContactSheet.Description" DefaultValue="Generate a professional contact sheet with thumbnails and metadata"/>
+        <bt:String id="OpenImporter.Description" DefaultValue="Open the Bulk Image Importer task pane to import images with advanced layouts"/>
         <bt:String id="ClearImages.Description" DefaultValue="Remove all imported images from all worksheets"/>
-        <bt:String id="Settings.Description" DefaultValue="Configure add-in settings, themes, and preferences"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

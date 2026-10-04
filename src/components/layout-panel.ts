@@ -94,12 +94,12 @@ export class LayoutPanel {
 
   private getModeIcon(mode: LayoutMode): string {
     const icons: Record<LayoutMode, string> = {
-      "row": "⇄",
-      "column": "⇅",
+      "row": "↔",
+      "column": "↕",
       "grid": "⊞",
-      "contact-sheet": "📋",
-      "masonry": "🔲",
-      "cell-anchored": "📎",
+      "contact-sheet": "▤",
+      "masonry": "▦",
+      "cell-anchored": "⛓",
     };
     return icons[mode];
   }

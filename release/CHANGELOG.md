@@ -1,6 +1,38 @@
 # Changelog
 
-## Unreleased (AppSource submission preparation)
+## Unreleased (UI + performance pass)
+
+### Ribbon
+- Collapsed 8 buttons to 2: Open Importer (ShowTaskpane) + Clear Images
+  (ExecuteFunction). Removed dead ShowTaskpane duplicates (Folder/Row/Column/
+  Grid/Contact/Settings now live only in the task pane). Desktop + Web
+  form factors updated; manifest validation enforces the minimal set.
+
+### Performance
+- Replaced per-image `Excel.run` + 2x `context.sync` + 250ms sleep with
+  batched insertion: 1 run + 2 syncs per batch (shapes), 1 run + 1 sync per
+  batch (cell images). Batching bounded by user batch size AND a ~3.5MB
+  payload ceiling (`MAX_BATCH_PAYLOAD_CHARS`); oversize images fall back to
+  single-image batches with per-image retry on batch failure.
+- Progress updates per batch; pause checks between batches; cancel stops
+  before the next batch (in-flight batch completes safely).
+- `npm run benchmark` (mock-Excel harness, 5ms simulated sync latency):
+  10 img: 1 run/2 syncs; 20 img: 2 runs/4 syncs; 50 img: 6 runs/12 syncs
+  (was: N runs/2N syncs + N*250ms sleep). All pass, 0 failures.
+- In-app benchmark summary logged to console per import (dev tools only).
+- Real wall-clock in Excel still to be confirmed via the console log.
+
+### Layout UI
+- Mode buttons compacted: horizontal 44-56px controls, 16px glyphs
+  (Row/Column/Grid/Contact/Masonry/Anchored), 3x2 grid retained with 6px gap.
+  Hover/focus/active + aria-pressed preserved.
+
+### Settings
+- New Add-in section with honest Remove Add-in flow: confirmation dialog +
+  environment-specific Office-side removal instructions + Microsoft docs link.
+  No storage manipulation; no false uninstall claims; workbook untouched.
+
+## AppSource submission preparation
 
 - `docs/SUBMISSION.md`: exact store-listing values, certification test notes,
   screenshot requirements, and the post-approval `WA` asset-ID installer
